@@ -1,6 +1,6 @@
 # Security Research
 
-Coordinated-disclosure write-ups and root-cause analyses of web application security issues.
+Coordinated-disclosure write-ups and root-cause analyses of security issues in web applications and sandboxed execution environments.
 
 Targets are anonymized unless disclosure is complete and public. Write-ups focus on the underlying
 weakness, the reasoning, and correct remediation — **no working exploit payloads are published.**
@@ -13,6 +13,12 @@ write-up is made public.
   injection chained with missing security headers and an unvalidated `localStorage` asset, followed
   by a lifecycle of vendor "fixes" (character-stripping filters, an `eval`-override script) that
   each treated a symptom while leaving the root cause untouched.
+
+- **[Hades Sandbox Isolation Assessment](./hades-sandbox-isolation.md)** — Namespace escape via
+  `unshare` + UID mapping, VFS trust bypass through tmpfs overlays, and direct write access to the
+  host Sentry IPC pipe inside Grok's user-facing code-execution sandbox. The report was closed
+  Informative; the write-up examines the isolation model failures, the limits of external
+  verification, and practical hardening recommendations for similar sandboxes.
 
 *More write-ups added over time.*
 
